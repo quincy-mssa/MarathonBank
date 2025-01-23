@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MarathonBank.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="40,0"
+            Spacing="25">
+            <Image
+                Source="tmc_logo.png"
+                HeightRequest="200"
+                Aspect="AspectFit"
+                SemanticProperties.Description="Marathon Logo" />
+
+
+            <Label
+                Text="The Marathon Bank"
+                Style="{StaticResource Headline}"
+                TextColor="Black"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Label
+                Text="Run Your Race"
+                TextColor="Black"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="The Marathon Motto" />
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Login"
+                BackgroundColor="White"
+                TextColor="Red"
+                CornerRadius="15"
+                BorderColor="Black"
+                BorderWidth="4" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
