@@ -1,25 +1,54 @@
-﻿namespace MarathonBank
+﻿using System;
+using Microsoft.Maui.Storage;
+using Microsoft.Maui.Controls;
+
+namespace MarathonBank
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void OnLoginClicked(object sender, EventArgs e)
         {
-            count++;
+            string enteredUsername = UsernameEntry.Text;
+            string enteredPassword = PasswordEntry.Text;
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
+            if (ValidateUser(enteredUsername, enteredPassword)) // Validate username and password
+            {
+                Preferences.Set("LoggedInUser", enteredUsername);  // Use Preferences instead of App.Current.Properties
+                await Navigation.PushAsync(new AccountsPage()); // Navigate to the Accounts page
+            }
             else
-                CounterBtn.Text = $"Clicked {count} times";
+            {
+                await DisplayAlert("Login Failed", "Invalid username or password", "OK");
+            }
+        }
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        private bool ValidateUser(string username, string password)
+        {
+            string filePath = "C:\\Users\\quinc\\OneDrive\\Desktop\\UserAccountData.txt";
+
+            if (File.Exists(filePath))
+            {
+                var lines = File.ReadAllLines(filePath);
+                foreach (var line in lines)
+                {
+                    var parts = line.Split(',');
+                    if (parts.Length == 2 && parts[0] == username && parts[1] == password)  // Match username and password
+                    {
+                        return true;  // Valid user
+                    }
+                }
+            }
+            return false;  // Invalid credentials
+        }
+
+        private async void OnCreateAccountClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RegisterPage());
         }
     }
-
 }

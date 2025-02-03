@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MarathonBank.RegisterPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="40,0"
+            Spacing="25">
+            <Label
+                Text="Create Your Account"
+                Style="{StaticResource Headline}"
+                TextColor="Black"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Entry
+                x:Name="UsernameEntry"
+                Placeholder="Enter Username"
+                TextColor="Black"
+                BackgroundColor="White" />
+
+            <Entry
+                x:Name="PasswordEntry"
+                Placeholder="Enter Password"
+                IsPassword="True"
+                TextColor="Black"
+                BackgroundColor="White" />
+
+            <Entry
+                x:Name="ConfirmPasswordEntry"
+                Placeholder="Confirm password"
+                IsPassword="True"
+                TextColor="Black"
+                BackgroundColor="White" />
+
+            <Button
+                x:Name="RegisterBtn"
+                Text="Create Account"
+                SemanticProperties.Hint="Creates a new account"
+                Clicked="OnRegisterClicked"
+                HorizontalOptions="Fill"
+                BackgroundColor="Black"
+                TextColor="White" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

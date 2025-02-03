@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MarathonBank.AccountDetailsPage"
+             Title="Account Details">
+
+    <StackLayout Padding="20">
+        <Label Text="Account Details" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+        <Label Text="Account Number:" FontSize="18" FontAttributes="Bold"/>
+        <Label Text="{Binding Account.AccountNumber}" FontSize="16"/>
+
+        <Label Text="Account Type:" FontSize="18" FontAttributes="Bold"/>
+        <Label Text="{Binding Account.AccountType}" FontSize="16"/>
+
+        <Label Text="Balance:" FontSize="18" FontAttributes="Bold"/>
+        <Label Text="{Binding Account.Balance, StringFormat='${0:F2}'}" FontSize="16" FontAttributes="Bold" />
+
+        <Entry x:Name="AmountEntry" Placeholder="Enter amount" Keyboard="Numeric"/>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button Text="Deposit" Clicked="OnDepositClicked" BackgroundColor="Green" TextColor="White"/>
+            <Button Text="Withdraw" Clicked="OnWithdrawClicked" BackgroundColor="Red" TextColor="White"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

@@ -5,36 +5,75 @@
 
     <ScrollView>
         <VerticalStackLayout
-            Padding="40,0"
-            Spacing="25">
+            Padding="40,30"
+            Spacing="20"
+            VerticalOptions="CenterAndExpand">
+
+            <!-- Logo -->
             <Image
-                Source="tmc_logo.png"
-                HeightRequest="200"
+                Source="marathon_banner_white.png"
+                HeightRequest="150"
                 Aspect="AspectFit"
+                Margin="0,0,0,10"
                 SemanticProperties.Description="Marathon Logo" />
 
-
+            <!-- Headline -->
             <Label
-                Text="The Marathon Bank"
+                Text="THE MARATHON BANK"
                 Style="{StaticResource Headline}"
-                TextColor="Black"
-                SemanticProperties.HeadingLevel="Level1" />
+                FontSize="24"
+                TextColor="Red"
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Center"/>
 
+            <!-- Subheadline -->
             <Label
-                Text="Run Your Race"
-                TextColor="Black"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="The Marathon Motto" />
+                Text="PREPARE FOR YOUR VICTORY LAP"
+                FontSize="16"
+                TextColor="Red"
+                FontAttributes="Italic"
+                HorizontalTextAlignment="Center"/>
+
+            <!-- Entry Fields with Frames -->
+            <Frame CornerRadius="10" Padding="10" BackgroundColor="White">
+                <Entry
+                    x:Name="UsernameEntry"
+                    Placeholder="Enter username"
+                    TextColor="Black"
+                    BackgroundColor="Transparent"/>
+            </Frame>
+
+            <Frame CornerRadius="10" Padding="10" BackgroundColor="White">
+                <Entry
+                    x:Name="PasswordEntry"
+                    Placeholder="Enter password"
+                    IsPassword="True"
+                    TextColor="Black"
+                    BackgroundColor="Transparent"/>
+            </Frame>
+
+            <!-- Buttons -->
+            <Button
+                x:Name="LoginBtn"
+                Text="Login"
+                Clicked="OnLoginClicked"
+                BackgroundColor="Red"
+                TextColor="White"
+                FontSize="18"
+                CornerRadius="10"
+                HeightRequest="50"
+                HorizontalOptions="FillAndExpand" />
 
             <Button
-                x:Name="CounterBtn"
-                Text="Login"
-                BackgroundColor="White"
-                TextColor="Red"
-                CornerRadius="15"
-                BorderColor="Black"
-                BorderWidth="4" />
+                x:Name="CreateAccountBtn"
+                Text="Create Account"
+                Clicked="OnCreateAccountClicked"
+                BackgroundColor="Red"
+                TextColor="White"
+                FontSize="18"
+                CornerRadius="10"
+                HeightRequest="50"
+                HorizontalOptions="FillAndExpand" />
 
         </VerticalStackLayout>
     </ScrollView>
