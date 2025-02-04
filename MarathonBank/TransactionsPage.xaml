@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MarathonBank.TransactionsPage">
+
+    <StackLayout Padding="20">
+        <Label Text="Transaction History" 
+               FontSize="24" 
+               HorizontalOptions="Center" 
+               FontAttributes="Bold"/>
+
+        <ListView x:Name="TransactionListView"
+                  ItemsSource="{Binding Transactions}"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding TransactionType}" 
+                                   FontSize="16" 
+                                   FontAttributes="Bold"/>
+                            <Label Text="{Binding Amount, StringFormat='Amount: {0:C}'}" 
+                                   FontSize="14"/>
+                            <Label Text="{Binding Timestamp, StringFormat='Date: {0:MM/dd/yyyy HH:mm}'}" 
+                                   FontSize="12"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>

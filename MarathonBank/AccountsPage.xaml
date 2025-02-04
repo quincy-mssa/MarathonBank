@@ -17,10 +17,8 @@
             <CollectionView ItemsSource="{Binding Accounts}" SelectionMode="Single">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Padding="10" 
+                        <Border Padding="10" 
                                Margin="5" 
-                               BorderColor="Red" 
-                               CornerRadius="10" 
                                BackgroundColor="Black">
                             <StackLayout>
                                 <Label Text="{Binding AccountNumber}" 
@@ -35,7 +33,7 @@
                                        FontAttributes="Bold" 
                                        TextColor="Red" />
                             </StackLayout>
-                        </Frame>
+                        </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
@@ -75,6 +73,16 @@
                     Clicked="OnWithdrawClicked"
                     BackgroundColor="Red" 
                     TextColor="White"/>
+
+            <Button Text="View Transactions"
+                    BackgroundColor="White" 
+                    TextColor="Red"
+                    Clicked="OnViewTransactionsClicked"
+                    HorizontalOptions="Center"
+                    Padding="10"/>
+
+
+
         </StackLayout>
     </ScrollView>
 
